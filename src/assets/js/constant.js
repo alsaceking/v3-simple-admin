@@ -1,0 +1,1 @@
+export const TOKEN = '__V3_SIMPLE_ADMIN_DEV_TOKEN__'

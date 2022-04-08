@@ -14,8 +14,8 @@ export default createStore({
     setTagsItem (state, tag) {
       state.tagsList.push(tag)
     },
-    delTagsItem (state, tag) {
-      state.tagsList.splice(tag.index, 1)
+    delTagsItem (state, index) {
+      state.tagsList.splice(index, 1)
     },
     clearTags (state) {
       state.tagsList = []

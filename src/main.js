@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-// import router from './router'
+import router from './router'
 import store from './store'
 import element from './plugins/element-plus'
 
@@ -9,5 +9,5 @@ import '@/assets/less/index.less'
 
 createApp(App)
   .use(element)
-  // .use(router)
+  .use(router)
   .use(store).mount('#app')
