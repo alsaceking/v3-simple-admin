@@ -41,16 +41,19 @@ const tagsNameList = computed(() =>
 .move-leave-to {
   opacity: 0;
 }
+
 .home {
   position: relative;
   display: flex;
   width: 100%;
   height: 100vh;
   overflow: hidden;
+
   .main {
     position: relative;
     flex: 1;
     background-color: @color-background-d;
+
     // overflow-y: scroll;
     .content-wrapper {
       position: absolute;
@@ -61,6 +64,7 @@ const tagsNameList = computed(() =>
       right: 0;
       overflow-y: scroll;
       background-color: @color-background-d;
+
       .content {
         background-color: @color-background;
         height: 100%;

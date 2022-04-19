@@ -1,95 +1,32 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Home from '@/views/Home.vue'
+import { routes, dynamicRoutes } from './permissionRouterMap.js'
+import myStorage from '@/assets/js/myStorage.js'
+import { USER_INFO } from '@/assets/js/constant.js'
+import { computed } from 'vue'
+import store from '@/store'
 
-const routes = [
-  {
-    path: '/',
-    redirect: '/workplace'
-  },
-  {
-    path: '/',
-    name: 'home',
-    component: Home,
-    children: [
-      {
-        path: "/workplace",
-        name: "workplace",
-        meta: {
-          title: '工作台'
-        },
-        component: () => import( /* webpackChunkName: "dashboard" */ "@/views/WorkPlace.vue")
-      },
-      {
-        path: "/analysis",
-        name: "analysis",
-        meta: {
-          title: '分析页'
-        },
-        component: () => import( /* webpackChunkName: "table" */ "@/views/Analysis.vue")
-      },
-      {
-        path: "/permission",
-        name: "permission",
-        meta: {
-          title: '权限管理'
-        },
-        component: () => import( /* webpackChunkName: "table" */ "@/views/Permission.vue")
-      },
-      {
-        path: "/role-list",
-        name: "role-list",
-        meta: {
-          title: '角色管理'
-        },
-        component: () => import( /* webpackChunkName: "role" */ "@/views/RoleList.vue")
-      },
-      {
-        path: "/basic-form",
-        name: "basic-form",
-        meta: {
-          title: '基础表单'
-        },
-        component: () => import( /* webpackChunkName: "table" */ "@/views/BasicForm.vue")
-      },
-      {
-        path: "/advance-form",
-        name: "advance-form",
-        meta: {
-          title: '进阶表单'
-        },
-        component: () => import( /* webpackChunkName: "table" */ "@/views/AdvanceForm.vue")
-      },
-      {
-        path: "/basic-list",
-        name: "basic-list",
-        meta: {
-          title: '基础列表'
-        },
-        component: () => import( /* webpackChunkName: "table" */ "@/views/BasicList.vue")
-      },
-      {
-        path: "/card-list",
-        name: "card-list",
-        meta: {
-          title: '卡片列表'
-        },
-        component: () => import( /* webpackChunkName: "table" */ "@/views/CardList.vue")
-      },
-      {
-        path: "/base-table",
-        name: "base-table",
-        meta: {
-          title: '基础表格'
-        },
-        component: () => import( /* webpackChunkName: "table" */ "@/views/BaseTable.vue")
-      }
-    ]
-  }
-]
+const userInfo = computed(() => store.state.userInfo)
+// const userInfo = myStorage.getLocalData(USER_INFO, null) ? myStorage.getLocalData(USER_INFO).content : null
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  document.title = `${to.meta.title} | yuxi`
+  // const token = myStorage.getLocalData(USER_INFO.content)
+  if (to.path !== '/login' && !userInfo.value) next({ name: 'login' })
+  else if (userInfo.value) {
+    const menuName = userInfo.value.menuName
+    const allow_routes = dynamicRoutes.filter((route) => { //过滤允许访问的路由
+      return menuName.includes(route.name)
+    })
+    allow_routes.forEach((route) => { // 将允许访问的路由动态添加到路由栈中
+      router.addRoute('home', route)
+    })
+    next()
+  } else next()
 })
 
 export default router

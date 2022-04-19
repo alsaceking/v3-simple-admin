@@ -5,7 +5,9 @@ import {
   Grid,
   Monitor,
   Odometer,
-  SetUp
+  SetUp,
+  Lock,
+  User
 } from '@element-plus/icons-vue'
 // import * as Icons from '@element-plus/icons-vue'
 
@@ -16,7 +18,9 @@ const Icons = {
   Grid,
   Monitor,
   Odometer,
-  SetUp
+  SetUp,
+  Lock,
+  User
 }
 
 export default Icons

@@ -36,8 +36,8 @@
 
 <script setup>
 import { Close, ArrowDown } from '@element-plus/icons-vue'
-import { computed } from 'vue';
-import { onBeforeRouteUpdate, useRoute, useRouter } from 'vue-router';
+import { computed } from 'vue'
+import { onBeforeRouteUpdate, useRoute, useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 
 const route = useRoute()
@@ -79,9 +79,9 @@ const closeTag = (index) => {
     ? tagsList.value[index]
     : tagsList.value[index - 1]
   if (item) {
-    delItem.path === route.fullPath && router.push(item.path);
+    delItem.path === route.fullPath && router.push(item.path)
   } else {
-    router.push("/");
+    router.push("/")
   }
 }
 
