@@ -51,7 +51,7 @@ const isCollapse = computed(() => store.state.collapse)
 
 // const list = computed(() => store.state.userInfo.menuList)
 const userInfo = myStorage.getLocalData(USER_INFO)
-const list = userInfo.content.menuList || []
+const list = userInfo ? userInfo.content.menuList : []
 const menusList = ref(list)
 
 const route = useRoute()

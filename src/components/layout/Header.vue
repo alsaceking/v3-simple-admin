@@ -85,7 +85,6 @@ const resetRouter = () => {
 const handleCommand = (cmd) => {
   if (cmd == "loginout") {
     resetRouter()
-    // console.log(router.getRoutes())
     myStorage.removeLocalData(USER_INFO)
     router.push("/login")
   } else if (cmd == "user") {

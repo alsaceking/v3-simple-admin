@@ -77,27 +77,33 @@
   position: relative;
   height: 100%;
   background-color: @color-background-d;
+
   .cell-wrapper {
     padding: 0px 10px 20px 10px;
+
     .box-card {
       .card-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
         .title {
           font-size: @fontsize-medium;
           color: @color-content-l;
         }
       }
+
       .content {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
         .text {
           font-size: @fontsize-large;
           color: @color-title;
           font-weight: bold;
         }
+
         img {
           width: 45px;
           height: 45px;

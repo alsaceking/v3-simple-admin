@@ -16,7 +16,7 @@ export const routes = [
         meta: {
           title: '工作台'
         },
-        component: () => import( /* webpackChunkName: "dashboard" */ "@/views/WorkPlace.vue")
+        component: () => import("@/views/WorkPlace.vue")
       },
       {
         path: "/analysis",
@@ -24,7 +24,15 @@ export const routes = [
         meta: {
           title: '分析页'
         },
-        component: () => import( /* webpackChunkName: "table" */ "@/views/Analysis.vue")
+        component: () => import("@/views/Analysis.vue")
+      },
+      {
+        path: '/:pathMatch(.*)*',
+        name: '404',
+        meta: {
+          title: '404'
+        },
+        component: () => import("@/components/login/404.vue")
       }
     ]
   },
