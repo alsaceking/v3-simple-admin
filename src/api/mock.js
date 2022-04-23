@@ -186,3 +186,32 @@ export const commonUser = {
     }
   ]
 }
+
+export const analysisData = {
+  lineChartData: {
+    title: '每周销量',
+    category: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    data: [
+      {
+        name: 'one',
+        data: [10, 100, 100, 40, 100, 100, 10],
+      },
+      {
+        name: 'two',
+        data: [12, 102, 102, 42, 102, 102, 12],
+      },
+      {
+        name: 'three',
+        data: [20, 110, 110, 50, 110, 110, 20],
+      },
+      {
+        name: 'four',
+        data: [28, 118, 118, 58, 118, 118, 28],
+      },
+      {
+        name: 'five',
+        data: [30, 120, 120, 60, 120, 120, 30]
+      }
+    ]
+  }
+}

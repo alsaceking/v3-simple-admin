@@ -1,8 +1,6 @@
 <template>
   <div class="wrapper">
-    分析页
-    <span>{{ num }}</span>
-    <button @click="add">+</button>
+    <LineChart :line-chart-data='lineChartData' />
   </div>
 </template>
 
@@ -11,15 +9,16 @@ export default {
   name: 'analysis'
 }
 </script>
-<script setup name="analysis" namedExport>
-import { ref } from 'vue'
+<script setup>
+import LineChart from '@/components/charts/LineCharts.vue'
+import { analysisData } from '@/api/mock.js'
 
-const num = ref(0)
-const add = () => {
-  num.value++
-}
+const lineChartData = analysisData.lineChartData
 
 </script>
 
 <style scoped lang="less">
+.wrapper {
+  width: 100%;
+}
 </style>

@@ -2,8 +2,8 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import { routes, dynamicRoutes } from './permissionRouterMap.js'
 import myStorage from '@/assets/js/myStorage.js'
 import { USER_INFO } from '@/assets/js/constant.js'
-import { computed } from 'vue'
-import store from '@/store'
+// import { computed } from 'vue'
+// import store from '@/store'
 
 const router = createRouter({
   history: createWebHashHistory(),
