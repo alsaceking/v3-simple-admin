@@ -188,7 +188,30 @@ export const commonUser = {
 }
 
 export const analysisData = {
+  pieChartData: {
+    style: 1,
+    type: 'pie',
+    title: '各个位置胜场',
+    data: [
+      { value: 80, name: 'Carry' },
+      { value: 30, name: 'Mid' },
+      { value: 50, name: 'offland' },
+      { value: 21, name: 'gank' },
+      { value: 6, name: 'support' }
+    ]
+  },
+  barChartData: {
+    type: 'bar',
+    title: '流量',
+    category: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    data: [
+      {
+        data: [120, 200, 150, 80, 70, 110, 130]
+      }
+    ]
+  },
   lineChartData: {
+    type: 'line',
     title: '每周销量',
     category: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
     data: [

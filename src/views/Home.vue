@@ -66,8 +66,7 @@ const tagsNameList = computed(() =>
       background-color: @color-background-d;
 
       .content {
-        background-color: @color-background;
-        height: 100%;
+        background-color: @color-background-d;
       }
     }
   }
