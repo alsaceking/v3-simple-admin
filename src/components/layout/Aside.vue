@@ -19,7 +19,7 @@
               <el-sub-menu v-if="subItem.subs" :index="subItem.index" :key="subItem.index">
                 <template #title>{{ subItem.title }}</template>
                 <el-menu-item v-for="(threeItem, i) in subItem.subs" :key="i" :index="threeItem.index">{{
-                  threeItem.title
+                    threeItem.title
                 }}</el-menu-item>
               </el-sub-menu>
               <el-menu-item v-else :index="subItem.index" :key="subItem.title">{{ subItem.title }}</el-menu-item>

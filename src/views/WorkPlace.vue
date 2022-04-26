@@ -1,114 +1,197 @@
 <template>
   <div class="wokeplace">
-    <el-row>
-      <el-col :span="6">
-        <div class="cell-wrapper">
-          <el-card class="box-card" shadow="never">
-            <template #header>
-              <div class="card-header">
-                <span class="title">最帅气的英雄</span>
-                <el-tag>帅气</el-tag>
-              </div>
-            </template>
-            <div class="content">
-              <div class="text">Nevermore</div>
-              <img src="../assets/images/avatar01.jpg" />
-            </div>
-          </el-card>
-        </div>
-      </el-col>
-      <el-col :span="6">
-        <div class="cell-wrapper">
-          <el-card class="box-card" shadow="never">
-            <template #header>
-              <div class="card-header">
-                <span class="title">最性感的英雄</span>
-                <el-tag type="success">性感</el-tag>
-              </div>
-            </template>
-            <div class="content">
-              <div class="text">Nevermore</div>
-              <img src="../assets/images/avatar02.jpg" />
-            </div>
-          </el-card>
-        </div>
-      </el-col>
-      <el-col :span="6">
-        <div class="cell-wrapper">
-          <el-card class="box-card" shadow="hover">
-            <template #header>
-              <div class="card-header">
-                <span class="title">最美的英雄</span>
-                <el-tag type="danger">美丽</el-tag>
-              </div>
-            </template>
-            <div class="content">
-              <div class="text">Nevermore</div>
-              <img src="../assets/images/avatar03.jpg" />
-            </div>
-          </el-card>
-        </div>
-      </el-col>
-      <el-col :span="6">
-        <div class="cell-wrapper">
-          <el-card class="box-card" shadow="never">
-            <template #header>
-              <div class="card-header">
-                <span class="title">最可爱英雄</span>
-                <el-tag type="warning">可爱</el-tag>
-              </div>
-            </template>
-            <div class="content">
-              <div class="text">Nevermore</div>
-              <img src="../assets/images/avatar02.jpg" />
-            </div>
-          </el-card>
-        </div>
-      </el-col>
-    </el-row>
+    <!-- header-tips -->
+    <div class="hearder-tips">
+      <div class="avatar">
+        <img src="../assets/images/avatar02.jpg" alt="">
+      </div>
+      <div class="tips">
+        <h2 class="title">早安，{{ userName }}。美好的一天从微笑开始~</h2>
+        <p class="text">做最棒的自己~加油！</p>
+      </div>
+      <div class="others">
+        <h2 class="title">待办</h2>
+        <div class="text">8/20</div>
+      </div>
+    </div>
+    <!-- content-wrapper -->
+    <div class="content-wrapper">
+      <el-row :gutter="10">
+        <el-col :span="16">
+          <div class="actions-wrapper">
+            <div class="title">最新动态</div>
+            <ul class="content">
+              <li class="action" v-for="(item, index) in actionsList" :key="index">
+                <img class="img" :src="item.img" alt="">
+                <div class="text">
+                  <div class="desc">{{ item.desc }}</div>
+                  <div class="time">{{ item.time }}</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </el-col>
+        <el-col :span="8">
+          <div class="notice-wrapper">
+            <div class="title">公告</div>
+            <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, excepturi quo illum
+              earum qui commodi! Eum nobis natus maxime porro corporis quia voluptatibus cumque, commodi id totam
+              tempora veniam dolores!</p>
+          </div>
+          <div class="ad-wrapper">
+            <img src="../assets/images/notice-bg.jpg" alt="">
+          </div>
+        </el-col>
+      </el-row>
+    </div>
   </div>
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
+import myStorage from '@/assets/js/myStorage.js'
+import { USER_INFO } from '@/assets/js/constant.js'
+import { workPlaceData } from '@/api/mock';
+
+const userInfo = myStorage.getLocalData(USER_INFO).content
+const name = userInfo.token
+const userName = ref(name)
+
+// 动态列表
+const actionsList = ref([])
+onMounted(() => {
+  actionsList.value = workPlaceData.actionsList
+})
+
+
 </script>
 
 <style scoped lang="less">
 .wokeplace {
   position: relative;
+  width: 100%;
   height: 100%;
-  background-color: @color-background-d;
 
-  .cell-wrapper {
-    padding: 0px 10px 20px 10px;
+  .hearder-tips {
+    padding: 25px 20px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    background-color: @color-background;
 
-    .box-card {
-      .card-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    .avatar {
+      width: 100px;
+      font-size: 0;
 
-        .title {
-          font-size: @fontsize-medium;
-          color: @color-content-l;
-        }
+      img {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+      }
+    }
+
+    .tips {
+      flex: 2;
+
+      .title {
+        color: @color-title;
+      }
+
+      .text {
+        margin-top: 20px;
+        font-size: @fontsize-medium;
+        color: @color-content-l;
+      }
+    }
+
+    .others {
+      flex: 1;
+      padding-right: 20px;
+      text-align: right;
+
+      .title {
+        font-size: @fontsize-medium;
+        color: @color-content-l;
+      }
+
+      .text {
+        margin-top: 20px;
+        color: @color-title;
+        font-size: @fontsize-large-x;
+      }
+    }
+  }
+
+  .content-wrapper {
+    margin-top: 10px;
+
+    .actions-wrapper {
+      background-color: @color-background;
+
+      .title {
+        padding: 20px;
+        border-bottom: 1px solid @color-border;
       }
 
       .content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        padding: 20px;
 
-        .text {
-          font-size: @fontsize-large;
-          color: @color-title;
-          font-weight: bold;
-        }
+        .action {
+          display: flex;
+          align-items: center;
+          padding: 20px 0;
+          border-bottom: 1px solid @color-border;
 
-        img {
-          width: 45px;
-          height: 45px;
-          border-radius: 5px;
+          .img {
+            width: 35px;
+            height: 35px;
+            margin-right: 25px;
+            border-radius: 10px;
+            align-self: flex-start;
+          }
+
+          .text {
+            overflow: hidden;
+            flex: 1;
+
+            .desc {
+              padding-bottom: 20px;
+              font-size: @fontsize-medium-x;
+              color: @color-title;
+              .no-wrap()
+            }
+
+            .time {
+              font-size: @fontsize-medium;
+              color: @color-content-l;
+            }
+          }
         }
+      }
+    }
+
+    .notice-wrapper {
+      background-color: @color-background;
+
+      .title {
+        padding: 20px;
+        border-bottom: 1px solid @color-border;
+      }
+
+      .text {
+        padding: 20px;
+        line-height: 30px;
+      }
+    }
+
+    .ad-wrapper {
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 0;
+      background-color: @color-background;
+
+      img {
+        width: 100%;
       }
     }
   }

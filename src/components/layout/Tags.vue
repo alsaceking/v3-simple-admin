@@ -3,18 +3,9 @@
     <span class="tag" :class="{ 'active': isActive('/workplace') }">
       <router-link class="title" to="/workplace">工作台</router-link>
     </span>
-    <span
-      class="tag"
-      v-for="(tag, index) in tagsList"
-      :key="index"
-      :class="{ 'active': isActive(tag.path) }"
-    >
+    <span class="tag" v-for="(tag, index) in tagsList" :key="index" :class="{ 'active': isActive(tag.path) }">
       <router-link class="title" :to="tag.path">{{ tag.title }}</router-link>
-      <el-icon
-        :size="16"
-        style="vertical-align: middle; margin-left: 5px;"
-        @click="closeTag(index)"
-      >
+      <el-icon class="icon" :size="16" style="vertical-align: middle; margin-left: 5px;" @click="closeTag(index)">
         <close />
       </el-icon>
     </span>
@@ -67,6 +58,7 @@ const setTags = (route) => {
     })
   }
 }
+
 setTags(route)
 onBeforeRouteUpdate((to) => {
   setTags(to)
@@ -112,6 +104,7 @@ const handleTags = (command) => {
   padding: 5px 10px;
   background-color: @color-background-d;
   overflow: hidden;
+
   .tag {
     display: inline-block;
     background-color: @color-background;
@@ -119,21 +112,35 @@ const handleTags = (command) => {
     line-height: 17px;
     padding: 6px 16px 4px;
     cursor: pointer;
+
     .title {
       font-size: @fontsize-medium;
       color: @color-title;
+      .extend-click()
     }
+
+    .icon {
+      &:hover {
+        background-color: @color-background;
+        border-radius: 50%;
+        color: @color-theme;
+      }
+    }
+
     &.active {
       background-color: @color-theme;
       color: @color-white;
+
       .title {
         color: @color-white;
       }
     }
-    & + .tag {
+
+    &+.tag {
       margin-left: 5px;
     }
   }
+
   .tags-close-box {
     position: absolute;
     top: 5px;
@@ -142,6 +149,7 @@ const handleTags = (command) => {
     padding: 3px 5px 0px 5px;
     background-color: @color-background;
     cursor: pointer;
+
     .icon {
       color: @color-sub;
     }

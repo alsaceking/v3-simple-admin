@@ -37,16 +37,24 @@ onUnmounted(() => {
 
 const resizeChart = () => {
   const chartVal = myChart.value
-  chartVal.resize()
+  chartVal.resize({
+    animation: {
+      duration: 600,
+      easing: 'cubicInOut'
+    }
+  })
 }
 
+onActivated(() => {
+  myChart.value.resize()
+})
+
+// 暴露给父组件 
 defineExpose({
   resizeChart
 })
 
-// onActivated(() => {
-//   myChart.value.resize()
-// })
+
 
 </script>
 
