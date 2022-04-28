@@ -314,3 +314,46 @@ export const workPlaceData = {
     }
   ]
 }
+
+export const baseTableData = [
+  {
+    id: 1,
+    name: 'King',
+    img: 'https://avatars.githubusercontent.com/u/19619322?v=4',
+    status: 'success',
+    address: 'No. 189, Grove St, Los Angeles',
+    date: '2016-05-02'
+  },
+  {
+    id: 2,
+    name: 'Jacob',
+    img: 'https://apic.douyucdn.cn/upload/avanew/face/201709/30/10/fd53f8d5fad766e5c01a84f79be2aeff_big.jpg',
+    status: 'danger',
+    address: 'No. 189, Grove St, Los Angeles',
+    date: '2016-05-02'
+  },
+  {
+    id: 3,
+    name: 'Tom',
+    img: 'https://lh3.googleusercontent.com/ogw/ADea4I7kggvYj-iDxu5--uFvIyPzOD-qaZWcYcWT3kWX=s32-c-mo',
+    status: 'warning',
+    address: 'No. 189, Grove St, Los Angeles',
+    date: '2016-05-02'
+  },
+  {
+    id: 4,
+    name: 'jack',
+    img: 'https://apic.douyucdn.cn/upload/avanew/face/201803/23/17/faa711e232041d7525a1bd695bf8fa8e_big.jpg',
+    status: 'danger',
+    address: 'No. 189, Grove St, Los Angeles',
+    date: '2016-05-02'
+  },
+  {
+    id: 5,
+    name: 'lucy',
+    img: 'https://static.youku.com/user/img/avatar/310/19.jpg',
+    status: 'success',
+    address: 'No. 189, Grove St, Los Angeles',
+    date: '2016-05-02'
+  }
+]

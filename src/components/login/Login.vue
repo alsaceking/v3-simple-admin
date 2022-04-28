@@ -54,11 +54,15 @@ const rules = {
     {
       required: true,
       message: "请输入用户名",
-      trigger: "blur",
+      trigger: "blur"
     }
   ],
   password: [
-    { required: true, message: "请输入密码", trigger: "blur" },
+    {
+      required: true,
+      message: "请输入密码",
+      trigger: "blur"
+    }
   ]
 }
 const store = useStore()

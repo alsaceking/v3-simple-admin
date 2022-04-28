@@ -7,7 +7,9 @@ import {
   Odometer,
   SetUp,
   Lock,
-  User
+  User,
+  Search,
+  Delete
 } from '@element-plus/icons-vue'
 // import * as Icons from '@element-plus/icons-vue'
 
@@ -20,7 +22,9 @@ const Icons = {
   Odometer,
   SetUp,
   Lock,
-  User
+  User,
+  Search,
+  Delete
 }
 
 export default Icons
