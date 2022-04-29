@@ -1,20 +1,23 @@
 export const AdminUser = {
   userId: 1,
   token: 'admin',
-  menuName: ['role-list', 'permission', 'basic-form', 'advance-form', 'basic-list', 'card-list', 'base-table'],
+  menuName: ['user-list', 'role-list', 'permission', 'basic-form', 'advance-form', 'basic-list', 'card-list', 'base-table'],
   menuList: [
     {
       icon: "Odometer",
       index: "/dashboard",
       title: "仪表盘",
+      id: 1,
       subs: [
         {
           index: "/workplace",
-          title: "工作台"
+          title: "工作台",
+          id: 101
         },
         {
           index: "/analysis",
-          title: "分析页"
+          title: "分析页",
+          id: 102
         }
       ]
     },
@@ -22,14 +25,22 @@ export const AdminUser = {
       icon: "SetUp",
       index: "/system",
       title: "系统管理",
+      id: 2,
       subs: [
         {
+          index: "/user-list",
+          title: "用户管理",
+          id: 201
+        },
+        {
           index: "/role-list",
-          title: "角色管理"
+          title: "角色管理",
+          id: 202
         },
         {
           index: "/permission",
-          title: "权限管理"
+          title: "权限管理",
+          id: 203
         }
       ]
     },
@@ -37,14 +48,17 @@ export const AdminUser = {
       icon: "Edit",
       index: "/forms",
       title: "表单页",
+      id: 3,
       subs: [
         {
           index: "/basic-form",
-          title: "基础表单"
+          title: "基础表单",
+          id: 301
         },
         {
           index: "/advance-form",
-          title: "进阶表单"
+          title: "进阶表单",
+          id: 302
         }
       ]
     },
@@ -52,22 +66,27 @@ export const AdminUser = {
       icon: "Grid",
       index: "/list",
       title: "列表页",
+      id: 4,
       subs: [
         {
           index: "/basic-list",
-          title: "标准列表"
+          title: "树形列表",
+          id: 401
         },
         {
           index: "/card-list",
-          title: "卡片列表"
+          title: "卡片列表",
+          id: 402
         },
         {
           index: "/table",
           title: "表格",
+          id: 403,
           subs: [
             {
               index: "/base-table",
-              title: "基础表格"
+              title: "基础表格",
+              id: 40301
             }
           ]
         }
@@ -85,14 +104,17 @@ export const vipUser = {
       icon: "Odometer",
       index: "/dashboard",
       title: "仪表盘",
+      id: 1,
       subs: [
         {
           index: "/workplace",
-          title: "工作台"
+          title: "工作台",
+          id: 101
         },
         {
           index: "/analysis",
-          title: "分析页"
+          title: "分析页",
+          id: 102
         }
       ]
     },
@@ -100,14 +122,17 @@ export const vipUser = {
       icon: "Edit",
       index: "/forms",
       title: "表单页",
+      id: 3,
       subs: [
         {
           index: "/basic-form",
-          title: "基础表单"
+          title: "基础表单",
+          id: 301
         },
         {
           index: "/advance-form",
-          title: "进阶表单"
+          title: "进阶表单",
+          id: 302
         }
       ]
     },
@@ -115,22 +140,27 @@ export const vipUser = {
       icon: "Grid",
       index: "/list",
       title: "列表页",
+      id: 4,
       subs: [
         {
           index: "/basic-list",
-          title: "标准列表"
+          title: "树形列表",
+          id: 401
         },
         {
           index: "/card-list",
-          title: "卡片列表"
+          title: "卡片列表",
+          id: 402
         },
         {
           index: "/table",
           title: "表格",
+          id: 403,
           subs: [
             {
               index: "/base-table",
-              title: "基础表格"
+              title: "基础表格",
+              id: 40301
             }
           ]
         }
@@ -148,14 +178,17 @@ export const commonUser = {
       icon: "Odometer",
       index: "/dashboard",
       title: "仪表盘",
+      id: 1,
       subs: [
         {
           index: "/workplace",
-          title: "工作台"
+          title: "工作台",
+          id: 101
         },
         {
           index: "/analysis",
-          title: "分析页"
+          title: "分析页",
+          id: 102
         }
       ]
     },
@@ -163,22 +196,27 @@ export const commonUser = {
       icon: "Grid",
       index: "/list",
       title: "列表页",
+      id: 4,
       subs: [
         {
           index: "/basic-list",
-          title: "标准列表"
+          title: "树形列表",
+          id: 401
         },
         {
           index: "/card-list",
-          title: "卡片列表"
+          title: "卡片列表",
+          id: 402
         },
         {
           index: "/table",
           title: "表格",
+          id: 403,
           subs: [
             {
               index: "/base-table",
-              title: "基础表格"
+              title: "基础表格",
+              id: 40301
             }
           ]
         }
@@ -186,6 +224,83 @@ export const commonUser = {
     }
   ]
 }
+
+export const userList = [
+  {
+    id: 1,
+    name: 'King',
+    username: 'admin',
+    img: 'https://avatars.githubusercontent.com/u/19619322?v=4',
+    phone: '13087878688',
+    role: 'admin',
+    status: '正常',
+    date: '2016-05-02'
+  },
+  {
+    id: 2,
+    name: 'Jacob',
+    username: 'vipuser',
+    img: 'https://apic.douyucdn.cn/upload/avanew/face/201709/30/10/fd53f8d5fad766e5c01a84f79be2aeff_big.jpg',
+    phone: '13087878688',
+    role: 'vipuser',
+    status: '正常',
+    date: '2016-05-02'
+  },
+  {
+    id: 3,
+    name: 'yuxi',
+    username: 'vipuser',
+    img: 'https://lh3.googleusercontent.com/ogw/ADea4I7kggvYj-iDxu5--uFvIyPzOD-qaZWcYcWT3kWX=s32-c-mo',
+    phone: '13087878688',
+    role: 'vipuser',
+    status: '正常',
+    date: '2016-05-02'
+  },
+  {
+    id: 4,
+    name: 'lucy',
+    username: 'commonuser',
+    img: 'https://apic.douyucdn.cn/upload/avanew/face/201803/23/17/faa711e232041d7525a1bd695bf8fa8e_big.jpg',
+    phone: '13087878688',
+    role: 'commonuser',
+    status: '正常',
+    date: '2016-05-02'
+  },
+  {
+    id: 5,
+    name: 'eric',
+    username: 'commonuser',
+    img: 'https://static.youku.com/user/img/avatar/310/19.jpg',
+    phone: '13087878688',
+    role: 'commonuser',
+    status: '禁用',
+    date: '2016-05-02'
+  }
+]
+
+export const roleList = [
+  {
+    id: 1,
+    name: '管理员',
+    status: '正常',
+    date: '2016-05-02',
+    remark: '拥有所有权限'
+  },
+  {
+    id: 2,
+    name: 'vip用户',
+    status: '正常',
+    date: '2016-05-02',
+    remark: '拥有除开系统外的所有权限'
+  },
+  {
+    id: 3,
+    name: '普通用户',
+    status: '正常',
+    date: '2016-05-02',
+    remark: '只有普通操作'
+  }
+]
 
 export const analysisData = {
   cycleData: [

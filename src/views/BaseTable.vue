@@ -1,16 +1,31 @@
 <template>
   <div class="base-table">
     <div class="search-wrapper">
-      <el-input v-model="searchParam.id" placeholder="用户ID" class="search-input"></el-input>
-      <el-input v-model="searchParam.name" placeholder="用户名" class="search-input"></el-input>
-      <el-button :icon="$Icons.Search" type="primary" @click="handleSearch">搜索</el-button>
+      <el-input
+        v-model="searchParam.id"
+        placeholder="用户ID"
+        class="search-input"
+      ></el-input>
+      <el-input
+        v-model="searchParam.name"
+        placeholder="用户名"
+        class="search-input"
+      ></el-input>
+      <el-button :icon="$Icons.Search" type="primary" @click="handleSearch"
+        >搜索</el-button
+      >
     </div>
     <el-table :data="tableData" border stripe>
       <el-table-column prop="id" label="ID" />
       <el-table-column prop="name" label="用户名" />
       <el-table-column label="头像(查看大图)" align="center">
         <template #default="scope">
-          <el-image class="table-img" :src="scope.row.img" :preview-src-list="[scope.row.img]" preview-teleported>
+          <el-image
+            class="table-img"
+            :src="scope.row.img"
+            :preview-src-list="[scope.row.img]"
+            preview-teleported
+          >
           </el-image>
         </template>
       </el-table-column>
@@ -23,13 +38,28 @@
       <el-table-column prop="date" label="Date" width="120" />
       <el-table-column fixed="right" label="操作" width="180">
         <template #default="scope">
-          <el-button class="opt-btn" :icon="$Icons.Edit" type="primary" size="small"
-            @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
-          <el-popconfirm confirm-button-text="确定" cancel-button-text="取消" icon-color="red" title="确定要删除吗?"
-            @confirm="handleDle(scope.$index)">
+          <el-button
+            class="opt-btn"
+            :icon="$Icons.Edit"
+            type="primary"
+            size="small"
+            @click="handleEdit(scope.$index, scope.row)"
+            >编辑</el-button
+          >
+          <el-popconfirm
+            confirm-button-text="确定"
+            cancel-button-text="取消"
+            icon-color="red"
+            title="确定要删除吗?"
+            @confirm="handleDle(scope.$index)"
+          >
             <template #reference>
-              <el-button class="opt-btn" :icon="$Icons.Delete" type="danger" size="small">
-                删除
+              <el-button
+                class="opt-btn"
+                :icon="$Icons.Delete"
+                type="danger"
+                size="small"
+                >删除
               </el-button>
             </template>
           </el-popconfirm>
@@ -37,9 +67,16 @@
       </el-table-column>
     </el-table>
     <div class="pagination">
-      <el-pagination class="el-page" :total="pageTotal" :currentPage="pagination.currentPage"
-        :page-size="pagination.pageSize" :background="true" :hide-on-single-page="false"
-        layout="total, prev, pager, next, jumper, slot" @current-change="handleCurrentChange">
+      <el-pagination
+        class="el-page"
+        :total="pageTotal"
+        :currentPage="pagination.currentPage"
+        :page-size="pagination.pageSize"
+        :background="true"
+        :hide-on-single-page="false"
+        layout="total, prev, pager, next, jumper, slot"
+        @current-change="handleCurrentChange"
+      >
         <template #jumper>
           <span>下一页</span>
         </template>
@@ -49,7 +86,11 @@
     <el-dialog v-model="editVisible" title="编辑" width="40%">
       <el-form :model="editData" label-width="70px">
         <el-form-item label="用户名">
-          <el-input v-model="editData.name" autocomplete="off" placeholder="用户名" />
+          <el-input
+            v-model="editData.name"
+            autocomplete="off"
+            placeholder="用户名"
+          />
         </el-form-item>
         <el-form-item label="地址">
           <el-input v-model="editData.address" placeholder="地址" />
@@ -86,17 +127,17 @@ const searchParam = reactive({
   name: '',
   id: ''
 })
+// 搜索
+const handleSearch = () => {
+  console.log(searchParam)
+}
+
 const tableData = ref([])
 
 const handleDle = (index) => {
   console.log(index)
   tableData.value.splice(index, 1)
-  ElMessage.success("删除成功")
-}
-
-// 搜索
-const handleSearch = () => {
-  console.log(searchParam)
+  ElMessage.success('删除成功')
 }
 
 // -----编辑弹窗
@@ -133,7 +174,6 @@ const pagination = reactive({
 const handleCurrentChange = (pageIndex) => {
   pagination.currentPage = pageIndex
 }
-
 </script>
 
 <style scoped lang="less">
@@ -162,7 +202,7 @@ const handleCurrentChange = (pageIndex) => {
   .opt-btn {
     margin-right: 12px;
 
-    &+.opt-btn {
+    & + .opt-btn {
       margin-left: 0;
     }
   }

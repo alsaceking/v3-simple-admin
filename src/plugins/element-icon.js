@@ -9,7 +9,8 @@ import {
   Lock,
   User,
   Search,
-  Delete
+  Delete,
+  Plus
 } from '@element-plus/icons-vue'
 // import * as Icons from '@element-plus/icons-vue'
 
@@ -24,7 +25,8 @@ const Icons = {
   Lock,
   User,
   Search,
-  Delete
+  Delete,
+  Plus
 }
 
 export default Icons

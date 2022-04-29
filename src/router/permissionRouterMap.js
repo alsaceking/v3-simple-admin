@@ -56,6 +56,14 @@ export const dynamicRoutes = [
     component: () => import( /* webpackChunkName: "table" */ "@/views/Permission.vue")
   },
   {
+    path: "/user-list",
+    name: "user-list",
+    meta: {
+      title: '用户管理'
+    },
+    component: () => import( /* webpackChunkName: "table" */ "@/views/UserList.vue")
+  },
+  {
     path: "/role-list",
     name: "role-list",
     meta: {
@@ -83,7 +91,7 @@ export const dynamicRoutes = [
     path: "/basic-list",
     name: "basic-list",
     meta: {
-      title: '基础列表'
+      title: '树形列表'
     },
     component: () => import( /* webpackChunkName: "table" */ "@/views/BasicList.vue")
   },

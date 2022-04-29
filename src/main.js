@@ -11,7 +11,6 @@ import '@/assets/less/index.less'
 const app = createApp(App)
 app.config.globalProperties.$Icons = Icons
 
-
 app
   .use(element)
   .use(store)

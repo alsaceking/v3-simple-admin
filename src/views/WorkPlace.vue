@@ -3,7 +3,7 @@
     <!-- header-tips -->
     <div class="hearder-tips">
       <div class="avatar">
-        <img src="../assets/images/avatar02.jpg" alt="">
+        <img src="../assets/images/avatar02.jpg" alt="" />
       </div>
       <div class="tips">
         <h2 class="title">早安，{{ userName }}。美好的一天从微笑开始~</h2>
@@ -21,8 +21,12 @@
           <div class="actions-wrapper">
             <div class="title">最新动态</div>
             <ul class="content">
-              <li class="action" v-for="(item, index) in actionsList" :key="index">
-                <img class="img" :src="item.img" alt="">
+              <li
+                class="action"
+                v-for="(item, index) in actionsList"
+                :key="index"
+              >
+                <img class="img" :src="item.img" alt="" />
                 <div class="text">
                   <div class="desc">{{ item.desc }}</div>
                   <div class="time">{{ item.time }}</div>
@@ -34,12 +38,15 @@
         <el-col :span="8">
           <div class="notice-wrapper">
             <div class="title">公告</div>
-            <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, excepturi quo illum
-              earum qui commodi! Eum nobis natus maxime porro corporis quia voluptatibus cumque, commodi id totam
-              tempora veniam dolores!</p>
+            <p class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Accusantium, excepturi quo illum earum qui commodi! Eum nobis
+              natus maxime porro corporis quia voluptatibus cumque, commodi id
+              totam tempora veniam dolores!
+            </p>
           </div>
           <div class="ad-wrapper">
-            <img src="../assets/images/notice-bg.jpg" alt="">
+            <img src="../assets/images/notice-bg.jpg" alt="" />
           </div>
         </el-col>
       </el-row>
@@ -51,7 +58,7 @@
 import { ref, onMounted } from 'vue'
 import myStorage from '@/assets/js/myStorage.js'
 import { USER_INFO } from '@/assets/js/constant.js'
-import { workPlaceData } from '@/api/mock';
+import { workPlaceData } from '@/api/mock'
 
 const userInfo = myStorage.getLocalData(USER_INFO).content
 const name = userInfo.token
@@ -62,8 +69,6 @@ const actionsList = ref([])
 onMounted(() => {
   actionsList.value = workPlaceData.actionsList
 })
-
-
 </script>
 
 <style scoped lang="less">
@@ -78,42 +83,34 @@ onMounted(() => {
     justify-items: center;
     align-items: center;
     background-color: @color-background;
-
     .avatar {
       width: 100px;
       font-size: 0;
-
       img {
         width: 72px;
         height: 72px;
         border-radius: 50%;
       }
     }
-
     .tips {
       flex: 2;
-
       .title {
         color: @color-title;
       }
-
       .text {
         margin-top: 20px;
         font-size: @fontsize-medium;
         color: @color-content-l;
       }
     }
-
     .others {
       flex: 1;
       padding-right: 20px;
       text-align: right;
-
       .title {
         font-size: @fontsize-medium;
         color: @color-content-l;
       }
-
       .text {
         margin-top: 20px;
         color: @color-title;
@@ -121,10 +118,8 @@ onMounted(() => {
       }
     }
   }
-
   .content-wrapper {
     margin-top: 10px;
-
     .actions-wrapper {
       background-color: @color-background;
 
@@ -158,7 +153,7 @@ onMounted(() => {
               padding-bottom: 20px;
               font-size: @fontsize-medium-x;
               color: @color-title;
-              .no-wrap()
+              .no-wrap();
             }
 
             .time {
