@@ -4,8 +4,16 @@
       <img class="log" src="../../assets/images/logo.png" />
       <div class="text">yuxiAdmin</div>
     </div>
-    <el-menu :default-active="onRoutes" class="el-menu-vertical-demo" :collapse="isCollapse" background-color="#303133"
-      text-color="#bfcbd9" active-text-color="#20a0ff" unique-opened router>
+    <el-menu
+      :default-active="onRoutes"
+      class="el-menu-vertical-demo"
+      :collapse="isCollapse"
+      background-color="#303133"
+      text-color="#bfcbd9"
+      active-text-color="#20a0ff"
+      unique-opened
+      router
+    >
       <template v-for="item in menusList">
         <template v-if="item.subs">
           <el-sub-menu :index="item.index" :key="item.index">
@@ -16,13 +24,25 @@
               <span>{{ item.title }}</span>
             </template>
             <template v-for="subItem in item.subs">
-              <el-sub-menu v-if="subItem.subs" :index="subItem.index" :key="subItem.index">
+              <el-sub-menu
+                v-if="subItem.subs"
+                :index="subItem.index"
+                :key="subItem.index"
+              >
                 <template #title>{{ subItem.title }}</template>
-                <el-menu-item v-for="(threeItem, i) in subItem.subs" :key="i" :index="threeItem.index">{{
-                    threeItem.title
-                }}</el-menu-item>
+                <el-menu-item
+                  v-for="(threeItem, i) in subItem.subs"
+                  :key="i"
+                  :index="threeItem.index"
+                  >{{ threeItem.title }}</el-menu-item
+                >
               </el-sub-menu>
-              <el-menu-item v-else :index="subItem.index" :key="subItem.title">{{ subItem.title }}</el-menu-item>
+              <el-menu-item
+                v-else
+                :index="subItem.index"
+                :key="subItem.title"
+                >{{ subItem.title }}</el-menu-item
+              >
             </template>
           </el-sub-menu>
         </template>
@@ -39,12 +59,13 @@
   </div>
 </template>
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import Icons from '@/plugins/element-icon.js'
 import { useRoute } from 'vue-router'
 import { useStore } from 'vuex'
 import myStorage from '@/assets/js/myStorage.js'
 import { USER_INFO } from '@/assets/js/constant.js'
+import { staticMenuList } from '@/components/layout/staticMenuList.js'
 
 const store = useStore()
 const isCollapse = computed(() => store.state.collapse)
@@ -54,11 +75,15 @@ const userInfo = myStorage.getLocalData(USER_INFO)
 const list = userInfo ? userInfo.content.menuList : []
 const menusList = ref(list)
 
+onMounted(() => {
+  menusList.value.splice(0, 0, staticMenuList[0])
+  menusList.value.push(staticMenuList[1])
+})
+
 const route = useRoute()
 const onRoutes = computed(() => {
   return route.path
 })
-
 </script>
 
 <style scoped lang="less">

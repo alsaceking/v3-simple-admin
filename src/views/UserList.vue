@@ -58,6 +58,7 @@
             :icon="$Icons.Edit"
             type="primary"
             size="small"
+            @click="handleEdit(scope.$index, scope.row)"
             >编辑</el-button
           >
           <el-popconfirm
@@ -80,12 +81,41 @@
         </template>
       </el-table-column>
     </el-table>
+    <!--编辑弹出框 -->
+    <el-dialog v-model="editVisible" title="编辑" width="40%">
+      <el-form :model="editData" label-width="70px">
+        <el-form-item label="用户名">
+          <el-input
+            v-model="editData.name"
+            autocomplete="off"
+            placeholder="用户名"
+          />
+        </el-form-item>
+        <el-form-item label="状态">
+          <el-select v-model="editData.role" placeholder="选择状态">
+            <el-option label="admin" value="admin" />
+            <el-option label="vipuser" value="vipuser" />
+            <el-option label="commonuser" value="commonuser" />
+          </el-select>
+        </el-form-item>
+        <el-form-item label="备注">
+          <el-input v-model="editData.remarks" placeholder="备注" />
+        </el-form-item>
+      </el-form>
+      <template #footer>
+        <span class="dialog-footer">
+          <el-button @click="editVisible = false">取消</el-button>
+          <el-button type="primary" @click="saveEdit">确定</el-button>
+        </span>
+      </template>
+    </el-dialog>
   </div>
 </template>
 
 <script setup>
 import { onMounted, reactive, ref } from 'vue'
 import { userList } from '../api/mock'
+import { ElMessage } from 'element-plus'
 
 onMounted(() => {
   tableData.value = userList
@@ -106,7 +136,33 @@ const handleSearch = () => {
 const tableData = ref([])
 
 const handleDle = (index) => {
-  console.log(index)
+  tableData.value.splice(index, 1)
+  ElMessage.success('删除成功')
+}
+
+// -----编辑弹窗
+const editVisible = ref(false)
+const editData = reactive({
+  name: '',
+  remarks: '',
+  role: ''
+})
+// 当前编辑行index
+let currentEditIndex = -1
+
+const handleEdit = (index, row) => {
+  currentEditIndex = index
+  Object.keys(editData).forEach((item) => {
+    editData[item] = row[item]
+  })
+  editVisible.value = true
+}
+const saveEdit = () => {
+  Object.keys(editData).forEach((item) => {
+    tableData.value[currentEditIndex][item] = editData[item]
+  })
+  editVisible.value = false
+  ElMessage.success(`修改第 ${currentEditIndex + 1} 行成功`)
 }
 </script>
 

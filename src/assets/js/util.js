@@ -50,3 +50,21 @@ export function throttle (fn, delay) {
     }
   }
 }
+
+// deepclone
+export function deepClone (obj, cache = new WeakMap()) {
+  if (obj === null || typeof obj !== 'object') return obj
+  if (obj instanceof Date) return new Date(obj)
+  if (obj instanceof RegExp) return new RegExp(obj)
+
+  if (cache.get(obj)) return cache.get(obj)
+  let cloneObj = new obj.constructor()
+  cache.set(obj, cloneObj)
+
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      cloneObj[key] = deepClone(obj[key], cache)
+    }
+  }
+  return cloneObj
+}

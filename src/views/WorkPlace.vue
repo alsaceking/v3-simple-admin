@@ -39,10 +39,11 @@
           <div class="notice-wrapper">
             <div class="title">公告</div>
             <p class="text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Accusantium, excepturi quo illum earum qui commodi! Eum nobis
-              natus maxime porro corporis quia voluptatibus cumque, commodi id
-              totam tempora veniam dolores!
+              JavaScript ( JS )
+              是一种具有函数优先的轻量级，解释型或即时编译型的编程语言。虽然它是作为开发Web
+              页面的脚本语言而出名的，但是它也被用到了很多非浏览器环境中，例如
+              Node.js、 Apache CouchDB 和 Adobe Acrobat。JavaScript
+              是一种基于原型编程、多范式的动态脚本语言，并且支持面向对象、命令式和声明式（如函数式编程）风格。
             </p>
           </div>
           <div class="ad-wrapper">

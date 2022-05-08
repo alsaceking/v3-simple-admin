@@ -2,45 +2,31 @@ export const AdminUser = {
   userId: 1,
   token: 'admin',
   menuName: ['user-list', 'role-list', 'permission', 'basic-form', 'advance-form', 'basic-list', 'card-list', 'base-table'],
+  permissionMenuId: [101, 102, 103, 201, 202, 301, 302, 30301],
   menuList: [
-    {
-      icon: "Odometer",
-      index: "/dashboard",
-      title: "仪表盘",
-      id: 1,
-      subs: [
-        {
-          index: "/workplace",
-          title: "工作台",
-          id: 101
-        },
-        {
-          index: "/analysis",
-          title: "分析页",
-          id: 102
-        }
-      ]
-    },
     {
       icon: "SetUp",
       index: "/system",
       title: "系统管理",
-      id: 2,
+      id: 1,
       subs: [
         {
           index: "/user-list",
           title: "用户管理",
-          id: 201
+          parentId: 1,
+          id: 101
         },
         {
           index: "/role-list",
           title: "角色管理",
-          id: 202
+          parentId: 1,
+          id: 102
         },
         {
           index: "/permission",
           title: "权限管理",
-          id: 203
+          parentId: 1,
+          id: 103
         }
       ]
     },
@@ -48,17 +34,19 @@ export const AdminUser = {
       icon: "Edit",
       index: "/forms",
       title: "表单页",
-      id: 3,
+      id: 2,
       subs: [
         {
           index: "/basic-form",
           title: "基础表单",
-          id: 301
+          parentId: 2,
+          id: 201
         },
         {
           index: "/advance-form",
           title: "进阶表单",
-          id: 302
+          parentId: 2,
+          id: 202
         }
       ]
     },
@@ -66,27 +54,31 @@ export const AdminUser = {
       icon: "Grid",
       index: "/list",
       title: "列表页",
-      id: 4,
+      id: 3,
       subs: [
         {
           index: "/basic-list",
           title: "树形列表",
-          id: 401
+          parentId: 3,
+          id: 301
         },
         {
           index: "/card-list",
           title: "卡片列表",
-          id: 402
+          parentId: 3,
+          id: 302
         },
         {
           index: "/table",
           title: "表格",
-          id: 403,
+          parentId: 3,
+          id: 303,
           subs: [
             {
               index: "/base-table",
               title: "基础表格",
-              id: 40301
+              parentId: 303,
+              id: 30301
             }
           ]
         }
@@ -99,40 +91,25 @@ export const vipUser = {
   userId: 2,
   token: 'vipuser',
   menuName: ['basic-form', 'advance-form', 'basic-list', 'card-list', 'base-table'],
+  permissionMenuId: [201, 202, 301, 302, 30301],
   menuList: [
-    {
-      icon: "Odometer",
-      index: "/dashboard",
-      title: "仪表盘",
-      id: 1,
-      subs: [
-        {
-          index: "/workplace",
-          title: "工作台",
-          id: 101
-        },
-        {
-          index: "/analysis",
-          title: "分析页",
-          id: 102
-        }
-      ]
-    },
     {
       icon: "Edit",
       index: "/forms",
       title: "表单页",
-      id: 3,
+      id: 2,
       subs: [
         {
           index: "/basic-form",
           title: "基础表单",
-          id: 301
+          parentId: 2,
+          id: 201
         },
         {
           index: "/advance-form",
           title: "进阶表单",
-          id: 302
+          parentId: 2,
+          id: 202
         }
       ]
     },
@@ -140,27 +117,31 @@ export const vipUser = {
       icon: "Grid",
       index: "/list",
       title: "列表页",
-      id: 4,
+      id: 3,
       subs: [
         {
           index: "/basic-list",
           title: "树形列表",
-          id: 401
+          parentId: 3,
+          id: 301
         },
         {
           index: "/card-list",
           title: "卡片列表",
-          id: 402
+          parentId: 3,
+          id: 302
         },
         {
           index: "/table",
           title: "表格",
-          id: 403,
+          parentId: 3,
+          id: 303,
           subs: [
             {
               index: "/base-table",
               title: "基础表格",
-              id: 40301
+              parentId: 303,
+              id: 30301
             }
           ]
         }
@@ -173,50 +154,37 @@ export const commonUser = {
   userId: 1,
   token: 'commonuser',
   menuName: ['basic-list', 'card-list', 'base-table'],
+  permissionMenuId: [301, 302, 30301],
   menuList: [
-    {
-      icon: "Odometer",
-      index: "/dashboard",
-      title: "仪表盘",
-      id: 1,
-      subs: [
-        {
-          index: "/workplace",
-          title: "工作台",
-          id: 101
-        },
-        {
-          index: "/analysis",
-          title: "分析页",
-          id: 102
-        }
-      ]
-    },
     {
       icon: "Grid",
       index: "/list",
       title: "列表页",
-      id: 4,
+      id: 3,
       subs: [
         {
           index: "/basic-list",
           title: "树形列表",
-          id: 401
+          parentId: 3,
+          id: 301
         },
         {
           index: "/card-list",
           title: "卡片列表",
-          id: 402
+          parentId: 3,
+          id: 302
         },
         {
           index: "/table",
           title: "表格",
-          id: 403,
+          parentId: 3,
+          id: 303,
           subs: [
             {
               index: "/base-table",
               title: "基础表格",
-              id: 40301
+              parentId: 303,
+              id: 30301
             }
           ]
         }
@@ -281,24 +249,28 @@ export const userList = [
 export const roleList = [
   {
     id: 1,
-    name: '管理员',
-    status: '正常',
+    roleName: '管理员',
+    status: true,
     date: '2016-05-02',
-    remark: '拥有所有权限'
+    remarks: '拥有所有权限',
+    permissionMenuId: [101, 102, 103, 201, 202, 301, 302, 30301],
+    menuList: []
   },
   {
     id: 2,
-    name: 'vip用户',
-    status: '正常',
+    roleName: 'vip用户',
+    status: true,
     date: '2016-05-02',
-    remark: '拥有除开系统外的所有权限'
+    remarks: '拥有除开系统外的所有权限',
+    permissionMenuId: [201, 202, 301, 302, 30301]
   },
   {
     id: 3,
-    name: '普通用户',
-    status: '正常',
+    roleName: '普通用户',
+    status: false,
     date: '2016-05-02',
-    remark: '只有普通操作'
+    remarks: '只有普通操作',
+    permissionMenuId: [301, 302, 30301]
   }
 ]
 

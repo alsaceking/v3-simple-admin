@@ -1,5 +1,5 @@
 <template>
-  <div class='chart-wrapper' ref="chartWrapper"></div>
+  <div class="chart-wrapper" ref="chartWrapper"></div>
 </template>
 
 <script setup>
@@ -16,10 +16,10 @@ const { options } = useChart(props.chartData)
 const myChart = ref(null)
 
 onMounted(() => {
-  const chartVal = myChart.value = echarts.init(chartWrapper.value, null, {
+  const chartVal = (myChart.value = echarts.init(chartWrapper.value, null, {
     width: 'auto',
     height: height
-  })
+  }))
 
   chartVal.setOption(options)
 
@@ -30,7 +30,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   myChart.value.dispose
-  window.removeEventListener("resize", () => {
+  window.removeEventListener('resize', () => {
     myChart.value.resize()
   })
 })
@@ -49,13 +49,10 @@ onActivated(() => {
   myChart.value.resize()
 })
 
-// 暴露给父组件 
+// 暴露给父组件
 defineExpose({
   resizeChart
 })
-
-
-
 </script>
 
 <style scoped lang="less">

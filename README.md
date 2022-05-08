@@ -1,6 +1,11 @@
-# Vue 3 + Vite
+# v3-simple-admin
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+<a href="https://github.com/vuejs/vue">
+    <img src="https://img.shields.io/badge/vue-3.3.25-brightgreen.svg" alt="vue">
+  </a>
+  <a href="https://github.com/ElemeFE/element">
+    <img src="https://img.shields.io/badge/element--ui-2.1.11-brightgreen.svg" alt="element-ui">
+  </a>
 
 ## Recommended IDE Setup
 
