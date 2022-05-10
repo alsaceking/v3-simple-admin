@@ -27,6 +27,14 @@ export const routes = [
         component: () => import("@/views/Analysis.vue")
       },
       {
+        path: '/about',
+        name: 'about',
+        meta: {
+          title: '关于'
+        },
+        component: () => import("@/views/About.vue")
+      },
+      {
         path: '/:pathMatch(.*)*',
         name: '404',
         meta: {
@@ -51,7 +59,7 @@ export const dynamicRoutes = [
     path: "/permission",
     name: "permission",
     meta: {
-      title: '权限管理'
+      title: '权限测试'
     },
     component: () => import( /* webpackChunkName: "table" */ "@/views/Permission.vue")
   },

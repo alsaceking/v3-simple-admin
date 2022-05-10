@@ -19,8 +19,8 @@
 </template>
 
 <script setup>
-import { computed } from "vue"
-import { useStore } from "vuex"
+import { computed } from 'vue'
+import { useStore } from 'vuex'
 import Aside from '@/components/layout/Aside.vue'
 import Header from '@/components/layout/Header.vue'
 
@@ -28,7 +28,6 @@ const store = useStore()
 const tagsNameList = computed(() =>
   store.state.tagsList.map((item) => item.name)
 )
-
 </script>
 
 <style scoped lang="less">
@@ -66,7 +65,9 @@ const tagsNameList = computed(() =>
       background-color: @color-background-d;
 
       .content {
-        background-color: @color-background-d;
+        // background-color: @color-background-d;
+        background-color: @color-background;
+        min-height: 100%;
       }
     }
   }

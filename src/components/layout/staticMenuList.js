@@ -20,7 +20,7 @@ export const staticMenuList = [
     ]
   },
   {
-    icon: "Odometer",
+    icon: "CoffeeCup",
     index: "/about",
     title: "关于",
     id: 9902
@@ -48,7 +48,7 @@ export const dynamicMenuList = [
       },
       {
         index: "/permission",
-        title: "权限管理",
+        title: "权限测试",
         parentId: 1,
         id: 103
       }

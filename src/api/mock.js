@@ -24,7 +24,7 @@ export const AdminUser = {
         },
         {
           index: "/permission",
-          title: "权限管理",
+          title: "权限测试",
           parentId: 1,
           id: 103
         }
