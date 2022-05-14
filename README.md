@@ -7,7 +7,7 @@
 <a href="https://github.com/element-plus/element-plus">
     <img src="https://img.shields.io/badge/element--ui-2.1.11-brightgreen.svg" alt="element-ui">
 </a>
-<a href="https://alsaceking.github.io/v3-simple-admin/#/about">
+<a href="https://alsaceking.gitee.io/v3-simple-admin/#/about">
     <img src="https://img.shields.io/badge/%24-donate-ff69b4.svg" alt="donate">
 </a>
 
@@ -15,7 +15,7 @@
 yuxiAdmin 是一个基于 vue3，vite2，element-plus 的简易后台管理系统解决方案。
 
 ## 在线预览
-[Preview](https://alsaceking.github.io/v3-simple-admin/)
+[Preview](https://alsaceking.gitee.io/v3-simple-admin/)
 
 ## 目前实现的特性
 
