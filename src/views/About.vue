@@ -12,7 +12,7 @@
       <span class="tip"> jinyunkai@outlook.com</span>
     </p>
     <div class="img-wrapper">
-      <img src="../assets/images/logo.png" alt="" />
+      <img src="../assets/images/donate.jpg" alt="" />
       <div class="tips">
         如果这个小框架对你有帮助，不妨请作者喝杯水鼓励一下！
       </div>
