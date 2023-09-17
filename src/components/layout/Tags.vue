@@ -1,11 +1,21 @@
 <template>
   <div class="tags-wrapper">
-    <span class="tag" :class="{ 'active': isActive('/workplace') }">
+    <span class="tag" :class="{ active: isActive('/workplace') }">
       <router-link class="title" to="/workplace">工作台</router-link>
     </span>
-    <span class="tag" v-for="(tag, index) in tagsList" :key="index" :class="{ 'active': isActive(tag.path) }">
+    <span
+      class="tag"
+      v-for="(tag, index) in tagsList"
+      :key="index"
+      :class="{ active: isActive(tag.path) }"
+    >
       <router-link class="title" :to="tag.path">{{ tag.title }}</router-link>
-      <el-icon class="icon" :size="16" style="vertical-align: middle; margin-left: 5px;" @click="closeTag(index)">
+      <el-icon
+        class="icon"
+        :size="16"
+        style="vertical-align: middle; margin-left: 5px"
+        @click="closeTag(index)"
+      >
         <close />
       </el-icon>
     </span>
@@ -73,14 +83,14 @@ const closeTag = (index) => {
   if (item) {
     delItem.path === route.fullPath && router.push(item.path)
   } else {
-    router.push("/")
+    router.push('/')
   }
 }
 
 // 关闭全部标签
 const closeAll = () => {
-  store.commit("clearTags")
-  router.push("/")
+  store.commit('clearTags')
+  router.push('/')
 }
 
 // 关闭其他标签
@@ -88,13 +98,12 @@ const closeOther = () => {
   const curItem = tagsList.value.filter((item) => {
     return item.path === route.fullPath
   })
-  store.commit("closeTagsOther", curItem)
+  store.commit('closeTagsOther', curItem)
 }
 
 const handleTags = (command) => {
-  command === "other" ? closeOther() : closeAll()
+  command === 'other' ? closeOther() : closeAll()
 }
-
 </script>
 
 <style scoped lang="less">
@@ -116,7 +125,7 @@ const handleTags = (command) => {
     .title {
       font-size: @fontsize-medium;
       color: @color-title;
-      .extend-click()
+      .extend-click();
     }
 
     .icon {
@@ -136,7 +145,7 @@ const handleTags = (command) => {
       }
     }
 
-    &+.tag {
+    & + .tag {
       margin-left: 5px;
     }
   }
