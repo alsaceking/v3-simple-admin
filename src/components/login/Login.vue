@@ -2,7 +2,13 @@
   <div class="wrapper">
     <div class="login-wrapper">
       <div class="login-title">Yuxi Admin</div>
-      <el-form :model="param" :rules="rules" ref="login" label-width="0px" class="form-content">
+      <el-form
+        :model="param"
+        :rules="rules"
+        ref="login"
+        label-width="0px"
+        class="form-content"
+      >
         <el-form-item prop="username">
           <el-input v-model="param.username" placeholder="username">
             <template #prepend>
@@ -13,7 +19,12 @@
           </el-input>
         </el-form-item>
         <el-form-item prop="password">
-          <el-input type="password" placeholder="password" v-model="param.password" @keyup.enter="handleSubmit()">
+          <el-input
+            type="password"
+            placeholder="password"
+            v-model="param.password"
+            @keyup.enter="handleSubmit()"
+          >
             <template #prepend>
               <el-icon class="icon">
                 <component :is="$Icons.Lock"></component>
@@ -22,9 +33,11 @@
           </el-input>
         </el-form-item>
         <div class="btn-wrapper">
-          <el-button class="btn" type="primary" @click="handleSubmit()">登录</el-button>
+          <el-button class="btn" type="primary" @click="handleSubmit()"
+            >登录</el-button
+          >
         </div>
-        <p class="login-tips">Tips : </p>
+        <p class="login-tips">Tips :</p>
       </el-form>
     </div>
     <div class="sun-wrapper">
@@ -45,23 +58,23 @@ import { AdminUser, vipUser, commonUser } from '@/api/mock.js'
 
 const router = useRouter()
 const param = reactive({
-  username: "admin",
-  password: "123123",
+  username: 'admin',
+  password: '123123'
 })
 
 const rules = {
   username: [
     {
       required: true,
-      message: "请输入用户名",
-      trigger: "blur"
+      message: '请输入用户名',
+      trigger: 'blur'
     }
   ],
   password: [
     {
       required: true,
-      message: "请输入密码",
-      trigger: "blur"
+      message: '请输入密码',
+      trigger: 'blur'
     }
   ]
 }
@@ -69,30 +82,27 @@ const store = useStore()
 
 const checkLogin = () => {
   if (!param.username || !param.password) return
-  else {
-    let userInfo
-    switch (param.username) {
-      case 'admin':
-        userInfo = AdminUser
-        break
-      case 'vipuser':
-        userInfo = vipUser
-        break
-      default:
-        userInfo = commonUser
-        break
-    }
-    // console.log(userInfo)
-    myStorage.setLocalData(USER_INFO, userInfo)
-    store.commit('setUserInfo', userInfo)
-    ElMessage.success("登录成功")
-    router.push('/')
+  let userInfo
+  switch (param.username) {
+    case 'admin':
+      userInfo = AdminUser
+      break
+    case 'vipuser':
+      userInfo = vipUser
+      break
+    default:
+      userInfo = commonUser
+      break
   }
+  // console.log(userInfo)
+  myStorage.setLocalData(USER_INFO, userInfo)
+  store.commit('setUserInfo', userInfo)
+  ElMessage.success('登录成功')
+  router.push('/')
 }
 
 const handleSubmit = throttle(checkLogin, 2000)
 store.commit('clearTags')
-
 </script>
 
 <style scoped lang="less">

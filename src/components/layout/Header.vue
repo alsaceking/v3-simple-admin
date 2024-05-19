@@ -9,10 +9,10 @@
           <Expand />
         </el-icon>
       </div>
-      <div style="flex: 1 1 0%;"></div>
+      <div style="flex: 1 1 0%"></div>
       <div class="right-menu">
         <span class="menu-item">
-          <el-badge :value="13" style="height: 50%;">
+          <el-badge :value="13" style="height: 50%">
             <el-icon :size="24" style="vertical-align: top">
               <Bell />
             </el-icon>
@@ -20,7 +20,11 @@
         </span>
         <span class="menu-item">{{ userName }}</span>
         <!-- 用户名下拉菜单 -->
-        <el-dropdown class="el-dropdown" trigger="click" @command="handleCommand">
+        <el-dropdown
+          class="el-dropdown"
+          trigger="click"
+          @command="handleCommand"
+        >
           <span>
             <img class="avator" src="../../assets/images/avatar01.jpg" />
             <el-icon class="el-icon--right">
@@ -33,7 +37,9 @@
                 <el-dropdown-item>项目仓库</el-dropdown-item>
               </a>
               <el-dropdown-item command="user">个人中心</el-dropdown-item>
-              <el-dropdown-item divided command="loginout">退出登录</el-dropdown-item>
+              <el-dropdown-item divided command="loginout"
+                >退出登录</el-dropdown-item
+              >
             </el-dropdown-menu>
           </template>
         </el-dropdown>
@@ -83,16 +89,15 @@ const resetRouter = () => {
 }
 // 处理用户操作
 const handleCommand = (cmd) => {
-  if (cmd == "loginout") {
+  if (cmd == 'loginout') {
     resetRouter()
     myStorage.removeLocalData(USER_INFO)
-    router.push("/login")
-  } else if (cmd == "user") {
+    router.push('/login')
+  } else if (cmd == 'user') {
     // router.push("/user")
     console.log(userName.value)
   }
 }
-
 </script>
 
 <style scoped lang="less">

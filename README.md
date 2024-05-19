@@ -15,7 +15,7 @@
 yuxiAdmin 是一个基于 vue3，vite2，element-plus 的简易后台管理系统解决方案。
 
 ## 在线预览
-[Preview](https://alsaceking.gitee.io/v3-simple-admin/)
+[Preview](https://alsaceking.github.io/v3-simple-admin/)
 
 ## 目前实现的特性
 

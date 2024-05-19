@@ -25,9 +25,7 @@ import Aside from '@/components/layout/Aside.vue'
 import Header from '@/components/layout/Header.vue'
 
 const store = useStore()
-const tagsNameList = computed(() =>
-  store.state.tagsList.map((item) => item.name)
-)
+const tagsNameList = computed(() => store.state.tagsList.map((item) => item.name))
 </script>
 
 <style scoped lang="less">
@@ -51,6 +49,7 @@ const tagsNameList = computed(() =>
   .main {
     position: relative;
     flex: 1;
+    width: calc(100% - 200px);
     background-color: @color-background-d;
 
     // overflow-y: scroll;

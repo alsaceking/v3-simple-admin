@@ -23,10 +23,10 @@
       <div class="tabs-wrapper">
         <el-tabs v-model="activeTab" @tab-click="handleClick">
           <el-tab-pane :label="lineChartData.title" name="first">
-            <ChartWrapper :chart-data='lineChartData' ref="linechart" />
+            <ChartWrapper :chart-data="lineChartData" ref="linechart" />
           </el-tab-pane>
           <el-tab-pane :label="barChartData.title" name="second">
-            <ChartWrapper :chart-data='barChartData' ref="barChart" />
+            <ChartWrapper :chart-data="barChartData" ref="barChart" />
           </el-tab-pane>
         </el-tabs>
       </div>
@@ -38,7 +38,7 @@
           <div class="chart-wrapper">
             <div class="chart-title">{{ pieChartData.title }}</div>
             <div class="chart-item">
-              <ChartWrapper :chart-data='pieChartData' :height="450" />
+              <ChartWrapper :chart-data="pieChartData" :height="450" />
             </div>
           </div>
         </el-col>
@@ -46,7 +46,7 @@
           <div class="chart-wrapper">
             <div class="chart-title">{{ pieChartDataSub.title }}</div>
             <div class="chart-item">
-              <ChartWrapper :chart-data='pieChartDataSub' :height="450" />
+              <ChartWrapper :chart-data="pieChartDataSub" :height="450" />
             </div>
           </div>
         </el-col>
@@ -88,7 +88,6 @@ const handleClick = () => {
     barChart.value.resizeChart()
   })
 }
-
 </script>
 
 <style scoped lang="less">
