@@ -39,7 +39,7 @@ git clone git@github.com:alsaceking/v3-simple-admin.git
 // 进入模板目录 
 cd v3-simple-admin    
 // 安装项目依赖,可用cnpm 或 yarn
-npm install
+npm install --register=https://registry.npmmirror.com
 // 开启服务器，浏览器访问 http://localhost:3000
 npm run dev
 // 执行构建命令
